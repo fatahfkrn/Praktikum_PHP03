@@ -1,4 +1,7 @@
 <?php
+
+require_once 'header.php';
+
 $proses = $_POST['proses'];
 $nama_siswa = $_POST['nama'];
 $mata_kuliah = $_POST['matkul'];
@@ -6,13 +9,15 @@ $nilai_uts = $_POST['nilai_uts'];
 $nilai_uas = $_POST['nilai_uas'];
 $nilai_tugas = $_POST['nilai_tugas'];
 
+echo '<div class=\'container-fluid\'>';
 if (!empty($proses)) {
-      echo 'Nama : ' . $nama_siswa;
-      echo '<br/>Mata Kuliah : ' . $mata_kuliah;
-      echo '<br/>Nilai UTS : ' . $nilai_uts;
-      echo '<br/>Nilai UAS : ' . $nilai_uas;
-      echo '<br/>Nilai Tugas Praktikum : ' . $nilai_tugas;
+      echo '<p class=\'my-0 text-capitalize fs-4\'>Nama : ' . $nama_siswa . '</p>';
+      echo '<p class=\'my-0 text-capitalize fs-4\'>Mata Kuliah : ' . $mata_kuliah . '</p>';
+      echo '<p class=\'my-0 text-capitalize fs-4\'>Nilai UTS : ' . $nilai_uts . '</p>';
+      echo '<p class=\'my-0 text-capitalize fs-4\'>Nilai UAS : ' . $nilai_uas . '</p>';
+      echo '<p class=\'my-0 text-capitalize fs-4\'>Nilai Tugas Praktikum : ' . $nilai_tugas . '</p>';
 }
+echo '</div>';
 
 $uts = $nilai_uts * 30/100;
 $uas = $nilai_uas * 35/100;
@@ -21,54 +26,53 @@ $jumlah_nilai = $uts + $uas + $tugas;
 
 echo '<br><br><br>';
 
+echo '<div class=\'container-fluid\'>';
 if($jumlah_nilai >= 55){
-      echo 'Anda Lulus';
+      echo '<p class=\'my-0 text-capitalize fs-4\'>Anda Lulus</p>';
 }
 else {
-      echo 'Anda Tidak Lulus';
+      echo '<p class=\'my-0 text-capitalize fs-4\'>Anda Tidak Lulus</p>';
 }
-
-echo '<br>';
 
 if($jumlah_nilai == 0 && $jumlah_nilai <= 35){
-      echo 'Grade Anda adalah E';
+      echo '<p class=\'my-0 text-capitalize fs-4\'>Grade Anda adalah E</p>';
 }
 elseif($jumlah_nilai >= 36 && $jumlah_nilai <= 55){
-      echo 'Grade Anda adalah D';
+      echo '<p class=\'my-0 text-capitalize fs-4\'>Grade Anda adalah D</p>';
 }
 elseif($jumlah_nilai >= 56 && $jumlah_nilai <= 69){
-      echo 'Grade Anda adalah C';
+      echo '<p class=\'my-0 text-capitalize fs-4\'>Grade Anda adalah C</p>';
 }
 elseif($jumlah_nilai >= 70 && $jumlah_nilai <= 84){
-      echo 'Grade Anda adalah B';
+      echo '<p class=\'my-0 text-capitalize fs-4\'>Grade Anda adalah B</p>';
 }
 elseif($jumlah_nilai >= 85 && $jumlah_nilai <= 100){
-      echo 'Grade Anda adalah A';
+      echo '<p class=\'my-0 text-capitalize fs-4\'>Grade Anda adalah A</p>';
 }
 elseif($jumlah_nilai < 0 && $jumlah_nilai > 100){
-      echo 'Grade Anda adalah I';
+      echo '<p class=\'my-0 text-capitalize fs-4\'>Grade Anda adalah I</p>';
 }
-
-echo '<br>';
 
 switch ($jumlah_nilai) {
       case $jumlah_nilai == 0 && $jumlah_nilai <= 35 :
-            echo 'Sangat Kurang';
+            echo '<p class=\'my-0 text-capitalize fs-4\'>Sangat Kurang</p>';
             break;
       case $jumlah_nilai >= 36 && $jumlah_nilai <= 55 :
-            echo 'Kurang';
+            echo '<p class=\'my-0 text-capitalize fs-4\'>Kurang</p>';
             break;
       case $jumlah_nilai >= 56 && $jumlah_nilai <= 69 :
-            echo 'Cukup';
+            echo '<p class=\'my-0 text-capitalize fs-4\'>Cukup</p>';
             break;
       case $jumlah_nilai >= 70 && $jumlah_nilai <= 84 :
-            echo 'Memuaskan';
+            echo '<p class=\'my-0 text-capitalize fs-4\'>Memuaskan</p>';
             break;
       case $jumlah_nilai >= 85 && $jumlah_nilai <= 100 :
-            echo 'Sangat Memuaskan';
+            echo '<p class=\'my-0 text-capitalize fs-4\'>Sangat Memuaskan</p>';
             break;
       default:
-            echo 'Tidak ada';
+      echo '<p class=\'my-0 text-capitalize fs-4\'>Tidak ada</p>';
             break;
 }
+echo '</div>';
+require_once 'footer.php';
 ?>
